@@ -1,0 +1,16 @@
+---
+- name: Configure colored prompts for visual awareness
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Color root account for visual awareness
+      ansible.builtin.lineinfile:
+        path: /root/.bashrc
+        line: PS1='\[\e[1;31m\][\u@\h \w]\$\[\e[0m\] '
+
+    - name: Color user account for visual awareness
+      ansible.builtin.lineinfile:
+        path: /etc/profile
+        line: PS1='\[\e[1;32m\][\u@\h \w]\$\[\e[0m\] '
+      when: ansible_facts['distribution'] == 'RedHat'
