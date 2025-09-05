@@ -1,1 +1,3 @@
-ssh-keygen -t ed25519
+ssh-keygen -t ed25519Loading coLoading coLoading coLoading co
+
+Loading co
